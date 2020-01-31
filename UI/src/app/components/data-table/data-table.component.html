@@ -1,0 +1,26 @@
+<div class="mat-elevation-z8 data-table">
+  <ng-container>
+    <table mat-table [dataSource]="items" class="full-width-table" matSort aria-label="Elements">
+      <ng-container *ngFor="let column of dynamicColumns" matColumnDef="{{column.name}}">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{column.label}}</th>
+        <td mat-cell *matCellDef="let item">
+          <table>
+            <div *ngIf="column.isdelete">
+              <tr>
+                <td> <button mat-raised-button color="accent" (click)="deleteById(item,isInventory)">Delete</button>
+                  <button mat-raised-button color="accent" (click)="gotoedit(item,isInventory)">Edit</button></td>
+              </tr>
+            </div>
+            <div *ngIf="!column.isdelete">
+              <tr>
+                <td>{{item[column.name]}}</td>
+              </tr>
+            </div>
+          </table>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </ng-container>
+</div>

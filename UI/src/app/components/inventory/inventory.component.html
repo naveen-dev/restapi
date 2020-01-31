@@ -1,0 +1,9 @@
+<mat-toolbar class="toolbar-background">
+  <div  class="center"> {{TITLE}}</div>  
+      <button mat-raised-button color="accent" routerLinkActive="active" (click) = "loadComponent(LOAD_ALL)">{{LOAD_ALL}}</button>
+      <button mat-raised-button color="accent" routerLinkActive="active" routerLink="/addNewInventory">{{ADD_INVENTORY}}</button>
+      <button mat-raised-button color="accent" routerLinkActive="active" routerLink="/addNewOrder">{{ADD_ORDER}}</button> 
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+

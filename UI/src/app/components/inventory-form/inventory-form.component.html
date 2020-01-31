@@ -1,0 +1,68 @@
+<mat-card>
+    <!-- Title of an Card -->
+    <mat-card-title>
+        New Inventory Details
+    </mat-card-title>
+
+    <mat-card-content>
+        <form (ngSubmit)="submitInventoryForm(inventory.id)" #InventoryForm="ngForm">
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td>
+                            <mat-form-field class="demo-full-width">
+                                <input matInput type="text" [(ngModel)]="inventory.name" class="form-control" id="name"
+                                    name="name" placeholder="Enter Inventory Name" #name="ngModel" required>
+                                <mat-error *ngIf="hasError('name', 'required')">Inventory Name is required</mat-error>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <input matInput type="textarea" [(ngModel)]="inventory.description" class="form-control"
+                                    id="description" name="description" placeholder="Enter your description"
+                                    #name="ngModel">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="demo-full-width">
+                                <input matInput min=1 type="number" [(ngModel)]="inventory.price" class="form-control"
+                                    id="price" name="price" placeholder="Enter Inventory Price" #name="ngModel" />
+                                <mat-error *ngIf="hasError('price', 'required')">Inventory Price is required</mat-error>
+                            </mat-form-field>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <mat-form-field class="demo-full-width">
+                                <input matInput min=1 type="number" [(ngModel)]="inventory.quantity" class="form-control"
+                                    id="quantity" name="quantity" placeholder="Enter Inventory Quantity" #name="ngModel" required>
+                                <mat-error *ngIf="hasError('quantity', 'required')">Inventory Quantity is required</mat-error>
+                            </mat-form-field>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-center">
+                            <button mat-raised-button color="accent">Submit</button>
+                            <button mat-raised-button color="accent"
+                                (click)="onCancel()">Cancel</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
